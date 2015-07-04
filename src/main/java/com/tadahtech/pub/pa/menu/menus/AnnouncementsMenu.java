@@ -26,7 +26,7 @@ public class AnnouncementsMenu extends Menu {
 	/**
 	 * Why does this look so weird in Git?
 	 */
-	
+
 	@Override
 	protected Button[] setUp() {
 		Settings settings = ProAnnouncer.getInstance().getSettings();
