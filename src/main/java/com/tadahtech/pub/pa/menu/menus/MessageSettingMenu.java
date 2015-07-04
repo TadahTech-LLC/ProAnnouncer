@@ -24,7 +24,7 @@ public class MessageSettingMenu extends Menu {
     protected Button[] setUp() {
         Button[] buttons = new Button[45];
         //TODO: Finish Settings
-
+        //TODO More stuff, commit edit
         return buttons;
     }
 
