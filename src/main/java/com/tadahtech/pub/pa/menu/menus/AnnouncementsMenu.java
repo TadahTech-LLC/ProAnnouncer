@@ -36,7 +36,7 @@ public class AnnouncementsMenu extends Menu {
 			Announcement announcement = announcements.get(i);
 			ItemStack itemStack = new ItemStack(Material.PAPER);
 			ItemBuilder builder = ItemBuilder.wrap(itemStack);
-			builder.name(ChatColor.GRAY + "Announcement: " +ChatColor.DARK_AQUA + announcement.getName());
+			builder.name(ChatColor.GRAY + "Announcement: " + ChatColor.DARK_AQUA + announcement.getName());
 			List<String> lore = new ArrayList<>();
 			lore.add(" ");
 			lore.add(ChatColor.DARK_AQUA + "Messages: ");
@@ -44,7 +44,7 @@ public class AnnouncementsMenu extends Menu {
 				if (ChatColor.stripColor(s).contains("$!include$")) {
 					continue;
 				}
-				if(s.contains("$split$")) {
+				if (s.contains("$split$")) {
 					String[] split = s.split("\\$split\\$");
 					System.out.println(s + " :: " + Arrays.toString(split));
 					lore.add(ChatColor.GRAY + "  - " + split[0]);
