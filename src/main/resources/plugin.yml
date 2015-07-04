@@ -1,0 +1,9 @@
+name: ProAnnouncer
+version: '${project.version}'
+main: '${project.groupId}.${project.artifactId}'
+depend: [Vault]
+softdepend: [LilyPad-Connect]
+commands:
+  pa:
+    description: Base command
+    aliases: [proa, proannouncer, proann, proannounce, pannouncer, pannounce]

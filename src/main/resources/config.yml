@@ -1,0 +1,109 @@
+#The name of this Server (for Global Messages)
+#This option is not heeded if it is not a global Message
+server: Hub
+#What Cloud System (Bungee, or LilyPad) are you using?
+msm: LilyPad
+#MSM = Multi Server Manager
+
+#Toggle your announcements on and off
+enabled: true
+#Randomly select a new message to display
+#Note: Every message will be sent, and will not repeat until all have sent.
+#EG: Message1 is sent, but Message2 hasn"t been, it will select Message2
+random: false
+#The time (in seconds) between messages
+interval: 10
+#Store players Info. This option determines if PlayerSettings are stored in memory, or persist accross reloads / restarts.
+persistData: true
+#Gui Names
+guis:
+  #When a player does /pa settings
+  player: '&c&lSettings'
+  #When a player does /pa admin
+  admin: '&a&lAdmin Panel'
+#Storage Settings
+storage:
+  #Where do I store the data?
+  #SQL and FILE are the only ones currently.
+  type: FILE
+#Settings for SQL (Assuming persistData is on, and storageType is set to SQL.
+sql:
+  host: localhost
+  user: root
+  password: password
+  port: 3306
+  db: player_settings
+#Settings for the storageType FILE
+file:
+  #Will all player's data be stored in 1 giant file? I Strongly recoomend setting this to false..
+  oneFile: false
+#Here's the good stuff: Messages
+messages:
+  #This used for editing in game
+  #Otherwise, it has no significant value.
+  'Global Test Message':
+    #Does this message get sent to all servers?
+    global: true
+    #If it does, what servers does it go to?
+    #Leave blank for all servers.
+    servers: "[]"
+
+    #NOTICE ABOUT GLOBAL MESSAGES#
+    #Carried Over: title, titleMessage, actionBar, actionBarMessage, messages#
+    #Not Carried Over: variables, overrideIgnore, prefix, autoInsert#
+    #Please be sure to edit messaages accordingly#
+    #END NOTICE#
+
+    #The prefix for this Message, if a global prefix is not set.
+    prefix: "&7Prefix"
+    #Add the prefix to the beginging of every message?
+    #If set to false, but you'd like the prefix in a message, add $prefix$ to the message.
+    autoInsert: false
+    #Does this message require a special permission in order to be seen?
+    #If this field is not set, or absent, it defaults to "announcer.receive"
+    permission: "announcer.seeMyAwesomeFirstMessage"
+    #Will Players be forced to see this message?
+    #IE If player "Notch" has his "receiveGeneral" setting turned on, will he still see this message
+    #I find tthis is useful for messages which are important to game play, and would recoomend this setting be false
+    #unless it is truly needed
+    overrideIgnore: false
+    #Does this message have a TitleMessage attached to it?
+    #I strongly reccomend this be false, unless it is an important message, as it will fill the users screen.
+    title: false
+    #The Actual title messages. Limit to 2 (Title, and Subtitle respectively.)
+    #If this is empty, buut "title" is set to true, no title message will be displayed.
+    titleMessage:
+    - "This is the title"
+    - "This is the subtitle"
+    #Does this message contain an ActrionBar message?
+    actionBar: true
+    actionBarMessage: "&4&lTesting Global Messages"
+    #Finally, the messages displayed in this announcemnt.
+    messages:
+    #$!include$ excludes this message from the GUI.
+    #$splt$ Seperates the message at the given point in the GUI.
+    - "&6&lGlobal Message Test"
+  "First Message":
+    global: false
+    servers: "[]"
+    prefix: "&7Prefix"
+    autoInsert: false
+    permission: "announcer.seeMyAwesomeFirstMessage"
+    overrideIgnore: false
+    title: false
+    titleMessage:
+    - "This is the title"
+    - "This is the subtitle"
+    actionBar: true
+    actionBarMessage: "This is above your item meta!"
+    messages:
+    - "$!include$&a&l---------&e&l&m[&r &6&lAnnouncement &e&l&m]&a&l---------"
+    - "$prefix$ I contain the prefix"
+    - "&eBUT I DON'T"
+    - "Hey! Here are some cool variables you can use$split$ $player$."
+    - "There are currently $serverPlayers$ players on your server"
+    - "There are currently $globalPlayers$ players on the network"
+    - "You have $$balance$"
+    - "$copy@1$"
+
+
