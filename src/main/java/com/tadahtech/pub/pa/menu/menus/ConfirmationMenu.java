@@ -29,12 +29,12 @@ public abstract class ConfirmationMenu extends Menu {
     @Override
     protected Button[] setUp() {
         Button[] buttons = new Button[9];
-        for(int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             buttons[i] = new Button(confirm, (player) -> {
-               onClick(true, player);
+                onClick(true, player);
             });
             buttons[i + 5] = new Button(deny, (player) -> {
-               onClick(false, player);
+                onClick(false, player);
             });
         }
         return buttons;

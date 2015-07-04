@@ -26,15 +26,15 @@ public class SQLStatement {
 
     public PreparedStatement prepare(Connection connection) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(base);
-        for(Map.Entry<Integer, Object> entry : map.entrySet()) {
+        for (Map.Entry<Integer, Object> entry : map.entrySet()) {
             int slot = entry.getKey();
             Object object = entry.getValue();
-            if(object instanceof String) {
+            if (object instanceof String) {
                 String s = (String) object;
                 statement.setString(slot, s);
                 continue;
             }
-            if(object instanceof Integer) {
+            if (object instanceof Integer) {
                 statement.setInt(slot, (Integer) object);
                 continue;
             }

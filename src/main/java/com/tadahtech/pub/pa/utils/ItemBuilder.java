@@ -135,7 +135,7 @@ public class ItemBuilder {
         }
         if (enchantments != null) {
             for (WrappedEnchantment enchantment : enchantments) {
-                if(enchantment.getLevel() > enchantment.getEnchantment().getMaxLevel()) {
+                if (enchantment.getLevel() > enchantment.getEnchantment().getMaxLevel()) {
                     item.addUnsafeEnchantment(enchantment.getEnchantment(), enchantment.getLevel());
                 } else {
                     meta.addEnchant(enchantment.getEnchantment(), enchantment.getLevel(), true);

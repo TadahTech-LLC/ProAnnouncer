@@ -11,38 +11,38 @@ import org.bukkit.entity.Player;
  */
 public class ProAdminCommand implements SubCommand {
 
-	@Override
-	public String getName() {
-		return "admin";
-	}
+    @Override
+    public String getName() {
+        return "admin";
+    }
 
-	@Override
-	public String getPermission() {
-		return "pa.admin";
-	}
+    @Override
+    public String getPermission() {
+        return "pa.admin";
+    }
 
-	@Override
-	public boolean isPlayerOnly() {
-		return true;
-	}
+    @Override
+    public boolean isPlayerOnly() {
+        return true;
+    }
 
-	@Override
-	public String getDescription() {
-		return "Manage your server's ProAnnouncer Settings through a GUI";
-	}
+    @Override
+    public String getDescription() {
+        return "Manage your server's ProAnnouncer Settings through a GUI";
+    }
 
-	@Override
-	public String[] getAliases() {
-		return new String[] {
-		  "a",
-		  "ad",
-		  "adminPanel"
-		};
-	}
+    @Override
+    public String[] getAliases() {
+        return new String[]{
+          "a",
+          "ad",
+          "adminPanel"
+        };
+    }
 
-	@Override
-	public void execute(CommandSender sender, String[] args) {
-		Player player = (Player) sender;
-		new AdminMenu(ProAnnouncer.getInstance().getSettings()).open(player);
-	}
+    @Override
+    public void execute(CommandSender sender, String[] args) {
+        Player player = (Player) sender;
+        new AdminMenu(ProAnnouncer.getInstance().getSettings()).open(player);
+    }
 }

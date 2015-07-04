@@ -7,12 +7,16 @@ import org.bukkit.command.CommandSender;
  */
 public interface SubCommand {
 
-	public String getName();
-	public String getPermission();
-	public boolean isPlayerOnly();
-	public String getDescription();
-	public String[] getAliases();
+    public String getName();
 
-	public void execute(CommandSender sender, String[] args);
+    public String getPermission();
+
+    public boolean isPlayerOnly();
+
+    public String getDescription();
+
+    public String[] getAliases();
+
+    public void execute(CommandSender sender, String[] args);
 
 }

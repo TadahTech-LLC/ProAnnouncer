@@ -16,7 +16,7 @@ public class Players {
     private static Players instance;
 
     public static Players getHandler() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new Players();
         }
         return instance;
@@ -32,7 +32,7 @@ public class Players {
 
     public PlayerInfo get(Player player, boolean nullable) {
         PlayerInfo info = infoMap.get(player.getUniqueId());
-        if(info == null) {
+        if (info == null) {
             return nullable ? null : new PlayerInfo(player);
         }
         return info;
@@ -40,7 +40,7 @@ public class Players {
 
     public void logoff(Player player) {
         PlayerInfo info = get(player, true);
-        if(info == null) {
+        if (info == null) {
             return;
         }
         infoMap.remove(player.getUniqueId());

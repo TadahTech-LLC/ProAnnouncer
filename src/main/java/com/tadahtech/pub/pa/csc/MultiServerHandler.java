@@ -9,10 +9,10 @@ import java.util.List;
  */
 public interface MultiServerHandler {
 
-	static String CHANNEL = "ProAnnouncer";
-	static ProAnnouncer PLUGIN = ProAnnouncer.getInstance();
+    static String CHANNEL = "ProAnnouncer";
+    static ProAnnouncer PLUGIN = ProAnnouncer.getInstance();
 
-	public void broadcast(List<String> servers, String base, boolean title, String[] titleMessage, boolean actionBar, String actionBarMessage, String permission);
+    public void broadcast(List<String> servers, String base, boolean title, String[] titleMessage, boolean actionBar, String actionBarMessage, String permission);
 
-	public int getAllPlayers();
+    public int getAllPlayers();
 }

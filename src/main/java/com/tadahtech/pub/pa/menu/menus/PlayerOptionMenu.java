@@ -34,7 +34,7 @@ public class PlayerOptionMenu extends Menu {
               .data(DyeColor.BLACK.getWoolData())
               .build());
             buttons[i + 27] = buttons[i];
-            if(i == 0 || i == 8) {
+            if (i == 0 || i == 8) {
                 for (int a = 9; a < 36; a += 9) {
                     buttons[i + a] = buttons[i];
                 }
@@ -107,7 +107,7 @@ public class PlayerOptionMenu extends Menu {
         actionBuilder.lore(actionLore);
         actionIcon.lore(actionLore);
         actionIcon.name(actionName);
-        return new ItemStack[] {actionBuilder.build(), actionIcon.build()};
+        return new ItemStack[]{actionBuilder.build(), actionIcon.build()};
     }
 
     public ItemStack[] getGeneral() {
@@ -121,7 +121,7 @@ public class PlayerOptionMenu extends Menu {
         actionBuilder.lore(actionLore);
         actionIcon.lore(actionLore);
         actionIcon.name(actionName);
-        return new ItemStack[] {actionBuilder.build(), actionIcon.build()};
+        return new ItemStack[]{actionBuilder.build(), actionIcon.build()};
     }
 
     public ItemStack[] getTitle() {
@@ -135,6 +135,6 @@ public class PlayerOptionMenu extends Menu {
         actionBuilder.lore(actionLore);
         actionIcon.lore(actionLore);
         actionIcon.name(actionName);
-        return new ItemStack[] {actionBuilder.build(), actionIcon.build()};
+        return new ItemStack[]{actionBuilder.build(), actionIcon.build()};
     }
 }

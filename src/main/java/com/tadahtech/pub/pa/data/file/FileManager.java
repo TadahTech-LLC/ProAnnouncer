@@ -27,9 +27,9 @@ public class FileManager implements StorageManager {
 
     @Override
     public void load(Player player) {
-        if(oneFile) {
+        if (oneFile) {
             File file = new File(dir, "players.yml");
-            if(!file.exists()) {
+            if (!file.exists()) {
                 try {
                     file.createNewFile();
                 } catch (IOException e) {
@@ -39,7 +39,7 @@ public class FileManager implements StorageManager {
             FileConfiguration config = YamlConfiguration.loadConfiguration(file);
             ConfigurationSection section = config.getConfigurationSection("players");
             ConfigurationSection playerSection = section.getConfigurationSection(player.getUniqueId().toString());
-            if(playerSection == null) {
+            if (playerSection == null) {
                 section.createSection(player.getUniqueId().toString());
                 players.newInfo(player, true, false, false);
                 save(player);
@@ -52,7 +52,7 @@ public class FileManager implements StorageManager {
             return;
         }
         File file = new File(dir, player.getUniqueId().toString() + ".yml");
-        if(!file.exists()) {
+        if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {
@@ -71,7 +71,7 @@ public class FileManager implements StorageManager {
     @Override
     public void save(Player player) {
         PlayerInfo info = players.get(player);
-        if(oneFile) {
+        if (oneFile) {
             File file = new File(dir, "players.yml");
             if (!file.exists()) {
                 try {
@@ -83,16 +83,16 @@ public class FileManager implements StorageManager {
             FileConfiguration config = YamlConfiguration.loadConfiguration(file);
             ConfigurationSection section = config.getConfigurationSection("players");
             ConfigurationSection playerSection = section.getConfigurationSection(player.getUniqueId().toString());
-            if(playerSection == null) {
+            if (playerSection == null) {
                 playerSection = section.createSection(player.getUniqueId().toString());
             }
-            set("general", info.seeGeneral(), file , config, playerSection);
-            set("actionBar", info.seeActionBar(), file , config, playerSection);
-            set("title", info.seeTitle(), file , config, playerSection);
+            set("general", info.seeGeneral(), file, config, playerSection);
+            set("actionBar", info.seeActionBar(), file, config, playerSection);
+            set("title", info.seeTitle(), file, config, playerSection);
             return;
         }
         File file = new File(dir, player.getUniqueId().toString() + ".yml");
-        if(!file.exists()) {
+        if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {
@@ -101,7 +101,7 @@ public class FileManager implements StorageManager {
         }
         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
         Map<String, Boolean> map = info.toFile();
-        for(Map.Entry<String, Boolean> entry : map.entrySet()) {
+        for (Map.Entry<String, Boolean> entry : map.entrySet()) {
             config.set(entry.getKey(), entry.getValue());
             try {
                 config.save(file);

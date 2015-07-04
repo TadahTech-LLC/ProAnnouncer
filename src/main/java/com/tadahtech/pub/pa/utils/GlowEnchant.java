@@ -20,22 +20,23 @@ public class GlowEnchant extends Enchantment {
         return registered;
     }
 
-    public static GlowEnchant getGlowEnchant(){
+    public static GlowEnchant getGlowEnchant() {
         return (GlowEnchant) instance;
     }
 
     /**
      * Apply the glowing enchantment to the item.
+     *
      * @param itemStack The itemstack to enchant
      * @return If the enchantment was successful
      */
     public static boolean appply(final ItemStack itemStack) {
-        if(itemStack == null || !registered) {
+        if (itemStack == null || !registered) {
             System.out.println("Cannot enchant because: " + (itemStack == null ? " NULL ITEM" : itemStack.getType().name() + " enchantment not registered"));
             return false;
         }
         ItemMeta meta = itemStack.getItemMeta();
-        meta.addEnchant(instance, 1 ,true);
+        meta.addEnchant(instance, 1, true);
         itemStack.setItemMeta(meta);
         return true;
     }
@@ -81,7 +82,7 @@ public class GlowEnchant extends Enchantment {
     public static void register() {
         try {
             final Enchantment e = Enchantment.getByName("GLOW");
-            if(e != null && e.getClass() == GlowEnchant.class) {
+            if (e != null && e.getClass() == GlowEnchant.class) {
                 GlowEnchant.registered = true;
                 return;
             }

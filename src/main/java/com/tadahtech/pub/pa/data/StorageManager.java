@@ -1,7 +1,7 @@
 package com.tadahtech.pub.pa.data;
 
-import com.tadahtech.pub.pa.ProAnnouncer;
 import com.tadahtech.pub.pa.Players;
+import com.tadahtech.pub.pa.ProAnnouncer;
 import org.bukkit.entity.Player;
 
 /**

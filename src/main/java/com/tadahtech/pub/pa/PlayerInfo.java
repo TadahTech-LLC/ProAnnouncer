@@ -57,7 +57,7 @@ public class PlayerInfo {
 
     public Map<Integer, Object> toStatement() {
         Map<Integer, Object> map = new HashMap<>();
-        map.put(1,  uuid.toString());
+        map.put(1, uuid.toString());
         map.put(2, receiveGeneral ? 1 : 0);
         map.put(3, receiveActionBar ? 1 : 0);
         map.put(4, receiveTitle ? 1 : 0);

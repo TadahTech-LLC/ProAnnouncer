@@ -28,7 +28,7 @@ public class MenuListener implements Listener {
         if (gui == null) {
             return;
         }
-        if(!gui.getName().equalsIgnoreCase(name)) {
+        if (!gui.getName().equalsIgnoreCase(name)) {
             return;
         }
         Button button = gui.getButton(event.getRawSlot());
@@ -52,7 +52,7 @@ public class MenuListener implements Listener {
         if (gui == null) {
             return;
         }
-        if(!gui.getName().equalsIgnoreCase(name)) {
+        if (!gui.getName().equalsIgnoreCase(name)) {
             return;
         }
         gui.onClose(player);

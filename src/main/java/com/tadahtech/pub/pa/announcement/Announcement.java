@@ -20,7 +20,7 @@ import java.util.*;
  * Created by Timothy Andis
  */
 public class Announcement {
-    
+
     private List<String> messages;
     private boolean overrideIgnore, title, actionBar, autoInsert, tryPerMessagePrefix, global;
     private String permission, actionBarMessage, prefix, name;
@@ -65,11 +65,11 @@ public class Announcement {
         if (toPlayers.isEmpty() && !global) {
             return;
         }
-        if(global) {
-            for(String s : messages) {
-                if(global) {
+        if (global) {
+            for (String s : messages) {
+                if (global) {
                     MultiServerHandler handler = ProAnnouncer.getInstance().getMultiServerHandler();
-                    if(handler == null) {
+                    if (handler == null) {
                         System.out.println("No MSM Found, Not sending messages");
                         return;
                     }
@@ -91,7 +91,7 @@ public class Announcement {
 
         ProAnnouncer.getInstance().getServer().getPluginManager().callEvent(event);
 
-        if(event.isCancelled()) {
+        if (event.isCancelled()) {
             return null;
         }
 
@@ -131,7 +131,7 @@ public class Announcement {
             base = base.replace("$balance$", String.valueOf(economy.getBalance(player)));
         }
         int size = Bukkit.getOnlinePlayers().size();
-        if(base.contains("$global")) {
+        if (base.contains("$global")) {
             try {
                 int all = ProAnnouncer.getInstance().getMultiServerHandler().getAllPlayers();
                 base = base.replace("$globalPlayers$ players", all + (all == 1 ? " player" : " players"));
@@ -144,11 +144,11 @@ public class Announcement {
         base = base.replace("$!include$", "");
         base = base.replace("$split$", "");
         base = color(base);
-        if(info.seeGeneral()) {
+        if (info.seeGeneral()) {
             player.sendMessage(base);
         }
         if (actionBar && actionBarMessage != null) {
-            if(info.seeActionBar()) {
+            if (info.seeActionBar()) {
                 PacketUtil.sendActionBarMessage(player, color(actionBarMessage));
             }
         }
@@ -156,11 +156,11 @@ public class Announcement {
             String title = color(titleMessage[0]);
             if (titleMessage.length == 2) {
                 String subtitle = color(titleMessage[1]);
-                if(info.seeTitle()) {
+                if (info.seeTitle()) {
                     PacketUtil.sendTitleToPlayer(player, title, subtitle);
                 }
             } else {
-                if(info.seeTitle()) {
+                if (info.seeTitle()) {
                     PacketUtil.sendTitleToPlayer(player, title, null);
                 }
             }
@@ -243,7 +243,7 @@ public class Announcement {
     }
 
     public void addMessage(String s) {
-        if(s.contains("@")) {
+        if (s.contains("@")) {
             String[] str = s.split("@");
             try {
                 int slot = Integer.parseInt(str[1]) - 1;

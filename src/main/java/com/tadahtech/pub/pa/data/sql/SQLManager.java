@@ -1,7 +1,7 @@
 package com.tadahtech.pub.pa.data.sql;
 
-import com.tadahtech.pub.pa.ProAnnouncer;
 import com.tadahtech.pub.pa.PlayerInfo;
+import com.tadahtech.pub.pa.ProAnnouncer;
 import com.tadahtech.pub.pa.data.StorageManager;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -101,7 +101,7 @@ public class SQLManager implements StorageManager {
                 statement.set(1, player.getUniqueId().toString());
                 ResultSet res = getResultSet(statement);
                 try {
-                    if(res.next()) {
+                    if (res.next()) {
                         int general = res.getInt("general");
                         int actionBar = res.getInt("actionBar");
                         int title = res.getInt("title");
@@ -119,7 +119,7 @@ public class SQLManager implements StorageManager {
         PlayerInfo info = players.get(player);
         String base = "INSERT INTO `player_info` VALUES(?, ?, ?, ?) ON DUPLICATE KEY UPDATE `general` = ?, `actionBar` = ?, `title` = ?";
         SQLStatement statement = new SQLStatement(base);
-        for(Map.Entry<Integer, Object> entry : info.toStatement().entrySet()) {
+        for (Map.Entry<Integer, Object> entry : info.toStatement().entrySet()) {
             statement.set(entry.getKey(), entry.getValue());
         }
         queryThread.addQuery(statement);

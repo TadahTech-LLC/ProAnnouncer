@@ -1,9 +1,9 @@
 package com.tadahtech.pub.pa;
 
+import com.tadahtech.pub.pa.announcement.Announcement;
 import com.tadahtech.pub.pa.data.StorageManager;
 import com.tadahtech.pub.pa.data.file.FileManager;
 import com.tadahtech.pub.pa.data.sql.SQLManager;
-import com.tadahtech.pub.pa.announcement.Announcement;
 import net.md_5.bungee.api.ChatColor;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.configuration.ConfigurationSection;
@@ -38,7 +38,7 @@ public class Settings {
 
     private void setUpEcon() {
         RegisteredServiceProvider<Economy> rsp = ProAnnouncer.getInstance().getServer().getServicesManager().getRegistration(Economy.class);
-        if(rsp == null) {
+        if (rsp == null) {
             ProAnnouncer.getInstance().getLogger().warning("Heyp! I couldn't find a hook with an Economy plugin, $balance$ will show as 0");
             return;
         }
@@ -52,7 +52,7 @@ public class Settings {
         this.interval = config.getInt("interval", 10) * 20;
         this.adminName = config.getString("guis.admin");
         this.playerName = config.getString("guis.player");
-        if(config.getString("prefix") != null) {
+        if (config.getString("prefix") != null) {
             tryPerMessagePrefix = false;
         }
         String sm = config.getString("storage.type");
@@ -78,7 +78,7 @@ public class Settings {
         this.sentAnnouncements = new ArrayList<>();
         this.announcements = new ArrayList<>();
         ConfigurationSection section = config.getConfigurationSection("messages");
-        for(String s : section.getKeys(false)) {
+        for (String s : section.getKeys(false)) {
             ConfigurationSection message = section.getConfigurationSection(s);
             List<String> messages = message.getStringList("messages");
             String prefix = message.getString("prefix", GLOBAL_PREFIX);
@@ -93,12 +93,12 @@ public class Settings {
             String actionBarMessage = message.getString("actionBarMessage");
             List<String> titleRaw = message.getStringList("titleMessage");
             String[] titleMessage = new String[0];
-            if(titleRaw != null) {
+            if (titleRaw != null) {
                 //Title and Subtitle only.
-                if(titleRaw.size() > 2) {
+                if (titleRaw.size() > 2) {
                     List<String> clone = titleRaw;
                     //Gotta avoid the CME
-                    for(int i = 2; i < titleRaw.size(); i++) {
+                    for (int i = 2; i < titleRaw.size(); i++) {
                         clone.remove(i);
                     }
                     titleRaw = clone;
@@ -115,7 +115,7 @@ public class Settings {
         this.config.set("random", this.random);
         this.config.set("persistData", this.persistInfo);
         this.config.set("interval", this.interval);
-        for(Announcement announcement : this.announcements) {
+        for (Announcement announcement : this.announcements) {
             ConfigurationSection section = config.getConfigurationSection("messages").getConfigurationSection(announcement.getName());
             List<String> messages = announcement.getMessages();
             section.set("messages", messages);

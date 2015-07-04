@@ -11,41 +11,41 @@ import org.bukkit.event.HandlerList;
  */
 public class PreAnnounceEvent extends Event implements Cancellable {
 
-	private static final HandlerList handlerlist = new HandlerList();
+    private static final HandlerList handlerlist = new HandlerList();
 
-	private Announcement announcement;
-	private Player player;
-	private boolean cancelled;
+    private Announcement announcement;
+    private Player player;
+    private boolean cancelled;
 
-	public PreAnnounceEvent(Announcement announcement, Player player) {
-		this.player = player;
-		this.announcement = announcement;
-	}
+    public PreAnnounceEvent(Announcement announcement, Player player) {
+        this.player = player;
+        this.announcement = announcement;
+    }
 
-	public Player getPlayer() {
-		return player;
-	}
+    public Player getPlayer() {
+        return player;
+    }
 
-	public Announcement getAnnouncement() {
-		return announcement;
-	}
+    public Announcement getAnnouncement() {
+        return announcement;
+    }
 
-	@Override
-	public boolean isCancelled() {
-		return cancelled;
-	}
+    @Override
+    public boolean isCancelled() {
+        return cancelled;
+    }
 
-	@Override
-	public void setCancelled(boolean b) {
-		this.cancelled = b;
-	}
+    @Override
+    public void setCancelled(boolean b) {
+        this.cancelled = b;
+    }
 
-	@Override
-	public HandlerList getHandlers() {
-		return handlerlist;
-	}
+    @Override
+    public HandlerList getHandlers() {
+        return handlerlist;
+    }
 
-	public static HandlerList getHandlerList() {
-		return handlerlist;
-	}
+    public static HandlerList getHandlerList() {
+        return handlerlist;
+    }
 }

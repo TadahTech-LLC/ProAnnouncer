@@ -28,17 +28,17 @@ public class AnnouncerThread extends BukkitRunnable {
 
     @Override
     public void run() {
-        if(!settings.isEnabled()) {
+        if (!settings.isEnabled()) {
             return;
         }
-        if(r) {
-            if(announcements.size() == 0) {
+        if (r) {
+            if (announcements.size() == 0) {
                 announcements = settings.getAnnouncements();
                 sent.clear();
             }
             Announcement announcement;
             try {
-                 announcement = announcements.get(random.nextInt(announcements.size()));
+                announcement = announcements.get(random.nextInt(announcements.size()));
             } catch (Exception e) {
                 announcements = settings.getAnnouncements();
                 sent.clear();
@@ -57,7 +57,7 @@ public class AnnouncerThread extends BukkitRunnable {
 //            settings.getSentMessages().add(message);
         announcement.announce();
         last++;
-        if(last == total) {
+        if (last == total) {
             last = 0;
         }
     }
@@ -68,6 +68,7 @@ public class AnnouncerThread extends BukkitRunnable {
 
     /**
      * Config options reload, so lets reset the clock.
+     *
      * @param settings The new settings file
      */
     public void setSettings(Settings settings) {

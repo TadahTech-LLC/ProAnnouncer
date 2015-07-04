@@ -16,12 +16,12 @@ public class QueryThread extends Thread {
 
     private Queue<Runnable> queue = new ConcurrentLinkedDeque<>();
     private SQLManager sqlManager;
-    
+
     public QueryThread() {
         setName("Announcer-QueryThread");
         start();
         StorageManager storageManager = ProAnnouncer.getInstance().getSettings().getStorageManager();
-        if(storageManager instanceof SQLManager) {
+        if (storageManager instanceof SQLManager) {
             this.sqlManager = (SQLManager) storageManager;
         }
     }
